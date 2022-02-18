@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TaskThree</string>
+    <string name="choose_contact">Выбрать контакт</string>
+    <string name="show_contacts">Показать контакты</string>
+    <string name="choose_from_sp">Показать из SP</string>
+    <string name="success">Успешно сохранено</string>
 </resources>
