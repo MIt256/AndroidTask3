@@ -3,23 +3,25 @@ package com.example.taskthree
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskthree.databinding.ContactBinding
 
 class ContactAdapter(val clickListener: (Int) -> Unit): RecyclerView.Adapter<ContactAdapter.ContactHolder>() {
 
     var contactList = ArrayList<Contact>()
-    //private ContactElementListener onDeleteButtonClickListener
 
     class ContactHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding = ContactBinding.bind(view)
         fun bind(cont: Contact) = with(binding) {
-            if (cont.name != null) contactName.text = cont.name else contactName.visibility = View.GONE
-            contactNumber.text = cont.number
-            if (cont.email != null && cont.email != "" ) {contactEmail.text = cont.email
-            contactEmail.visibility = View.VISIBLE}
-            else contactEmail.visibility = View.GONE
+            if (cont.firstName != null || cont.familyName != null) {
+                contactName.text = "${cont.firstName ?: ""} ${cont.familyName ?: ""}"
+            } else contactName.visibility = View.GONE
+            if (cont.number != null) {contactNumber.text = cont.number
+                contactNumber.visibility = View.VISIBLE}
+                else contactNumber.visibility = View.GONE
+            if (cont.email != null) {contactEmail.text = cont.email
+                contactEmail.visibility = View.VISIBLE}
+                else contactEmail.visibility = View.GONE
         }
     }
 

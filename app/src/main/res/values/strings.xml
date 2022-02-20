@@ -5,4 +5,6 @@
     <string name="choose_from_sp">Показать из SP</string>
     <string name="success">Успешно сохранено</string>
     <string name="load">Получение списка контактов</string>
+    <string name="show_notification">Показать в notif</string>
+    <string name="error">Ошибка</string>
 </resources>

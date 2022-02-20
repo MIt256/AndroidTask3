@@ -11,6 +11,8 @@
         android:id="@+id/contactListView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:padding="3dp"
+        android:theme="@style/textTheme"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -22,7 +24,7 @@
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="wrap_content"
-
+        android:background="#CCE5FD"
         android:layout_height="wrap_content"
         android:stretchColumns="0,1"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
@@ -43,7 +45,7 @@
                 android:layout_margin="3dp"
                 android:onClick="btnChooseClick"
                 android:text="@string/choose_contact"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/buttonShowDB"
@@ -51,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 android:text="@string/show_contacts"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
         </TableRow>
 
         <TableRow
@@ -67,15 +69,16 @@
                 android:layout_marginBottom="4dp"
                 android:onClick="btnSPClick"
                 android:text="@string/choose_from_sp"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/buttonShowNotification"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="3dp"
-                android:text="Button"
-                android:textSize="10sp" />
+                android:onClick="btnNotification"
+                android:text="@string/show_notification"
+                android:textSize="12sp" />
         </TableRow>
 
     </TableLayout>
@@ -85,6 +88,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="#CCE5FD"
+        android:theme="@style/textTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,22 +100,25 @@
             android:id="@+id/textName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:layout_weight="1"
-            android:text="TextView" />
+            />
 
         <TextView
             android:id="@+id/textNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:layout_weight="1"
-            android:text="TextView" />
+            />
 
         <TextView
             android:id="@+id/textEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:layout_weight="1"
-            android:text="TextView" />
+           />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
