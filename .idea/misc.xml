@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidLabs/TaskThree/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/AndroidLabs/TaskThree/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/AndroidLabs/TaskThree/app/src/main/res/layout/contact.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidLabs/TaskThree/app/src/main/res/layout/dialog.xml" value="0.14" />
       </map>
     </option>
   </component>

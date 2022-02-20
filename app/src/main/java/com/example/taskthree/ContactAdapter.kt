@@ -7,15 +7,19 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskthree.databinding.ContactBinding
 
-class ContactAdapter: RecyclerView.Adapter<ContactAdapter.ContactHolder>() {
+class ContactAdapter(val clickListener: (Int) -> Unit): RecyclerView.Adapter<ContactAdapter.ContactHolder>() {
 
-    private var contactList = ArrayList<Contact>()
+    var contactList = ArrayList<Contact>()
+    //private ContactElementListener onDeleteButtonClickListener
 
     class ContactHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding = ContactBinding.bind(view)
         fun bind(cont: Contact) = with(binding) {
-            contactName.text = cont.name
+            if (cont.name != null) contactName.text = cont.name else contactName.visibility = View.GONE
             contactNumber.text = cont.number
+            if (cont.email != null && cont.email != "" ) {contactEmail.text = cont.email
+            contactEmail.visibility = View.VISIBLE}
+            else contactEmail.visibility = View.GONE
         }
     }
 
@@ -25,8 +29,8 @@ class ContactAdapter: RecyclerView.Adapter<ContactAdapter.ContactHolder>() {
     }
 
     override fun onBindViewHolder(holder: ContactHolder, position: Int) {
-        holder.itemView.setOnClickListener {
-            Toast.makeText(holder.binding.root.context, R.string.success, Toast.LENGTH_SHORT).show()
+        holder.itemView.setOnClickListener{
+            clickListener(position)
         }
         holder.bind(contactList[position])
     }

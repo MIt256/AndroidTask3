@@ -4,4 +4,5 @@
     <string name="show_contacts">Показать контакты</string>
     <string name="choose_from_sp">Показать из SP</string>
     <string name="success">Успешно сохранено</string>
+    <string name="load">Получение списка контактов</string>
 </resources>
