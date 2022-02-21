@@ -14,7 +14,7 @@ class DialogFragment(val contacts: ArrayList<Contact>, val clickListener: (Conta
     DialogFragment() {
 
     private lateinit var adapter: ContactAdapter
-    lateinit var binding: DialogBinding
+    private lateinit var binding: DialogBinding
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         binding = DialogBinding.inflate(layoutInflater)
@@ -30,7 +30,7 @@ class DialogFragment(val contacts: ArrayList<Contact>, val clickListener: (Conta
                 )
             )
             Toast.makeText(context, R.string.success, Toast.LENGTH_SHORT).show()
-            dismiss()
+
         }
         val displayContacts = ArrayList<Contact>()
         for(con in contacts){
@@ -43,6 +43,11 @@ class DialogFragment(val contacts: ArrayList<Contact>, val clickListener: (Conta
         return builder
             .setView(binding.root)
             .create()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        dismiss()
     }
 
 }

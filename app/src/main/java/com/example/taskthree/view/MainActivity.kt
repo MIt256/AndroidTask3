@@ -10,7 +10,9 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.taskthree.databinding.ActivityMainBinding
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.example.taskthree.*
 import com.example.taskthree.model.ContactDB
@@ -99,8 +101,10 @@ class MainActivity : AppCompatActivity() {
 
     //get contacts
     fun btnChooseClick(view: View) {
+        if (ContextCompat.checkSelfPermission(this,READ_CONTACTS) == PackageManager.PERMISSION_GRANTED){
         Toast.makeText(this, R.string.load, Toast.LENGTH_SHORT).show()
         mainViewModel.updateListContacts(contentResolver)
+        } else Toast.makeText(this, R.string.error, Toast.LENGTH_SHORT).show()
     }
 
     //check permission
