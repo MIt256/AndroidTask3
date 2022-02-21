@@ -1,4 +1,4 @@
-package com.example.taskthree.room
+package com.example.taskthree.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

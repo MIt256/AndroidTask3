@@ -14,6 +14,7 @@ class Notification(val context: Context) {
     companion object{
         const val NOTIFICATION_ID = 111
         const val CHANNEL_ID = "channel 228"
+        const val NAME = "contact_app"
     }
 
     fun createNotification(text:String?){
@@ -39,7 +40,7 @@ class Notification(val context: Context) {
         if (Build.VERSION.SDK_INT>= Build.VERSION_CODES.O){
             val notifyManager = context.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
             notifyManager.createNotificationChannel(
-                NotificationChannel(CHANNEL_ID,"contact_app",NotificationManager.IMPORTANCE_DEFAULT)
+                NotificationChannel(CHANNEL_ID, NAME,NotificationManager.IMPORTANCE_DEFAULT)
             )
         }
 

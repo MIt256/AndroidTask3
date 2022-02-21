@@ -1,12 +1,15 @@
-package com.example.taskthree
+package com.example.taskthree.view
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.taskthree.Contact
+import com.example.taskthree.R
 import com.example.taskthree.databinding.ContactBinding
 
-class ContactAdapter(val clickListener: (Int) -> Unit): RecyclerView.Adapter<ContactAdapter.ContactHolder>() {
+class ContactAdapter(val clickListener: (Int) -> Unit) :
+    RecyclerView.Adapter<ContactAdapter.ContactHolder>() {
 
     var contactList = ArrayList<Contact>()
 
@@ -16,12 +19,14 @@ class ContactAdapter(val clickListener: (Int) -> Unit): RecyclerView.Adapter<Con
             if (cont.firstName != null || cont.familyName != null) {
                 contactName.text = "${cont.firstName ?: ""} ${cont.familyName ?: ""}"
             } else contactName.visibility = View.GONE
-            if (cont.number != null) {contactNumber.text = cont.number
-                contactNumber.visibility = View.VISIBLE}
-                else contactNumber.visibility = View.GONE
-            if (cont.email != null) {contactEmail.text = cont.email
-                contactEmail.visibility = View.VISIBLE}
-                else contactEmail.visibility = View.GONE
+            if (cont.number != null) {
+                contactNumber.text = cont.number
+                contactNumber.visibility = View.VISIBLE
+            } else contactNumber.visibility = View.GONE
+            if (cont.email != null) {
+                contactEmail.text = cont.email
+                contactEmail.visibility = View.VISIBLE
+            } else contactEmail.visibility = View.GONE
         }
     }
 
@@ -31,7 +36,7 @@ class ContactAdapter(val clickListener: (Int) -> Unit): RecyclerView.Adapter<Con
     }
 
     override fun onBindViewHolder(holder: ContactHolder, position: Int) {
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener {
             clickListener(position)
         }
         holder.bind(contactList[position])
@@ -41,7 +46,7 @@ class ContactAdapter(val clickListener: (Int) -> Unit): RecyclerView.Adapter<Con
         return contactList.size
     }
 
-    fun addToList(items: ArrayList<Contact>){
+    fun addToList(items: ArrayList<Contact>) {
         contactList = items
         notifyDataSetChanged()
     }
